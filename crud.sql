@@ -8,14 +8,22 @@ INSERT INTO clientes
           (nome, lealdade)
         VALUES
           ('Georgia', 0)
+          
+          
+ 
+;
 
- INSERT INTO pedidos 
+
+-- 2)
+INSERT INTO pedidos 
             (status, cliente_id)
         VALUES
           ('Recebido', 6)
-          
-          
- INSERT INTO produtos_pedidos
+
+
+-- 3)
+
+INSERT INTO produtos_pedidos
           (pedido_id, produto_id)
         VALUES
           (6, 1),
@@ -23,9 +31,11 @@ INSERT INTO clientes
           (6, 6),
           (6, 8),
           (6, 8)
-          
-          
- SELECT
+
+-- Leitura
+
+-- 1)
+SELECT
 clientes.id,
 clientes.nome,
 clientes.lealdade,
@@ -43,21 +53,6 @@ FROM
   INNER JOIN produtos ON produtos_pedidos.pedido_id = produtos.id
   INNER JOIN clientes ON clientes.id = pedidos.cliente_id
   WHERE clientes.id = 6
-;
-
-
--- 2)
-
-
-
--- 3)
-
-
-
--- Leitura
-
--- 1)
-
 
 
 -- Atualização
