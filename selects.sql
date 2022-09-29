@@ -14,7 +14,7 @@ SELECT
 FROM
   produtos_pedidos
   INNER JOIN pedidos ON produtos_pedidos.pedido_id = pedidos.id
-  INNER JOIN produtos ON produtos_pedidos.pedido_id = produtos.id;
+  INNER JOIN produtos ON produtos_pedidos.produto_id = produtos.id;
  
 -- 2)
 SELECT
