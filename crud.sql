@@ -8,9 +8,6 @@ INSERT INTO clientes
           (nome, lealdade)
         VALUES
           ('Georgia', 0)
-          
-          
- 
 ;
 
 
@@ -19,7 +16,6 @@ INSERT INTO pedidos
             (status, cliente_id)
         VALUES
           ('Recebido', 6)
-
 
 -- 3)
 
