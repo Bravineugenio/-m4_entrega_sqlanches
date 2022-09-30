@@ -32,9 +32,9 @@ INSERT INTO produtos_pedidos
 
 -- 1)
 SELECT
-clientes.id,
-clientes.nome,
-clientes.lealdade,
+ clientes.id,
+ clientes.nome,
+ clientes.lealdade,
  pedidos.id,
  pedidos.status,
  pedidos.cliente_id,
@@ -54,11 +54,22 @@ FROM
 -- Atualização
 
 -- 1)
-
-
-
+UPDATE
+  clientes
+  SET lealdade = ( SELECT SUM (produtos.pts_de_lealdade)
+  FROM
+  produtos_pedidos
+  INNER JOIN pedidos ON produtos_pedidos.pedido_id = pedidos.id
+  INNER JOIN produtos ON produtos_pedidos.pedido_id = produtos.id
+  INNER JOIN clientes ON clientes.id = pedidos.cliente_id
+  WHERE clientes.nome = 'Georgia')
+  WHERE clientes.nome = 'Georgia';
+  
 -- Deleção
 
 -- 1)
-
+DELETE FROM
+  clientes
+WHERE
+  clientes.id = 4  RETURNING *;
 
