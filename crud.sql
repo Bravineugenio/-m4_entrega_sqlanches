@@ -58,9 +58,9 @@ UPDATE
   clientes
   SET lealdade = ( SELECT SUM (produtos.pts_de_lealdade)
   FROM
-  produtos_pedidos
-  INNER JOIN pedidos ON produtos_pedidos.pedido_id = pedidos.id
-  INNER JOIN produtos ON produtos_pedidos.pedido_id = produtos.id
+  produtos
+  INNER JOIN produtos_pedidos ON produtos.id = produtos_pedidos.produto_id
+  INNER JOIN pedidos ON pedidos.id = produtos_pedidos.pedido_id
   INNER JOIN clientes ON clientes.id = pedidos.cliente_id
   WHERE clientes.nome = 'Georgia')
   WHERE clientes.nome = 'Georgia';
